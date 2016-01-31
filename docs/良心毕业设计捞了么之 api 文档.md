@@ -129,9 +129,9 @@
 ```
 3.获取店铺列表
 ```javascript
-    url: '/api/v1/restaurant?offset=&q=&rid='
+    url: '/api/v1/restaurant?offset=&q=&rid=&categories='
     method: 'get'
-    query: {offset: 间隔, q: 查询字段, rid: 店铺id（获取指定店铺时需要）}
+    query: {offset: 间隔, q: 查询字段, rid: 店铺id（获取指定店铺时需要）, categories: 分类id }
     res: {
         msg: 
         restaurants: []
@@ -253,6 +253,38 @@
         comments: []
     }
 ```
+4.回复评论
+```javascript
+    url: '/api/v1/comment/:cid',
+    method: 'put'
+    params: {cid: 评论id}
+    data: Object
+    res: {
+        msg:
+    }
+```
+
+###消息相关
+1.添加消息
+```javascript
+    url: '/api/v1/message',
+    method: 'post',
+    data: Object
+```
+2.获取消息
+```javascript
+    url: '/api/v1/message?offset=',
+    method: 'get'
+    query: {offset: 间隔}
+```
+3.消息标为已读
+```javascript
+    url: '/api/v1/message/:mid',
+    method: 'put',
+    params: {mid: 消息id},
+    data: Object
+```
+
 ###反馈
 1.新增反馈
 ```javascript

@@ -5,3 +5,4 @@ exports.food = require('./food.js');
 exports.order = require('./order.js');
 exports.comment = require('./comment.js');
 exports.feedback = require('./feedback.js');
+exports.message = require('./message.js');

@@ -29,6 +29,7 @@ app.use('/api/v1/food', routes.food);
 app.use('/api/v1/order', routes.order);
 app.use('/api/v1/comment', routes.comment);
 app.use('/api/v1/feedback', routes.feedback);
+app.use('/api/v1/message', routes.message);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
