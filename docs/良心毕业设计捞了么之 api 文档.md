@@ -56,7 +56,7 @@
 ```
 5.用户登录
 ```javascript
-    url: '/api/v1/login?type='
+    url: '/api/v1/user/login?type='
     method: 'post'
     query: {type: 1：普通用户 2：店家 3：管理员}
     data: {
@@ -158,9 +158,10 @@
 ```
 2.修改菜品资料
 ```javascript
-    url: '/api/v1/food/:fid'
+    url: '/api/v1/food/:fid？bid='
     method: 'put'
     params: {fid: 菜品id}
+    query: {bid: 店家id}
     data: Object
     res: {
         msg:
@@ -168,9 +169,9 @@
 ```
 3.获取菜品列表
 ```javascript
-    url: '/api/v1/food?offset=&q=&fid='
+    url: '/api/v1/food?offset=&q=&fid=&rid='
     method: 'get'
-    query: {offset: 间隔, q: 查询字段, fid: 菜品id}
+    query: {offset: 间隔, q: 查询字段, fid: 菜品id, rid: 店铺id}
     res: {
         msg:
         foods: []
@@ -216,9 +217,9 @@
 ```
 4.获取订单列表
 ```javascript
-    url: '/api/v1/order?offset=&q=&oid='
+    url: '/api/v1/order?offset=&q=&oid=&uid='
     method: 'get'
-    query: {offset: 间隔, q: 查询字段, oid: 订单id}
+    query: {offset: 间隔, q: 查询字段, oid: 订单id, uid: 用户id}
     res: {
         msg:
         orders: []
@@ -245,9 +246,9 @@
 ```
 3.获取评论列表
 ```javascript
-    url: '/api/v1/comment?offset=&uid='
+    url: '/api/v1/comment?offset=&uid=&fid='
     method: 'get'
-    query: {offset: 间隔, uid: 用户id}
+    query: {offset: 间隔, uid: 用户id, fid: 菜品id}
     res: {
         msg: 
         comments: []
@@ -273,9 +274,9 @@
 ```
 2.获取消息
 ```javascript
-    url: '/api/v1/message?offset=',
+    url: '/api/v1/message?offset=&uid=',
     method: 'get'
-    query: {offset: 间隔}
+    query: {offset: 间隔, uid: 用户id}
 ```
 3.消息标为已读
 ```javascript
