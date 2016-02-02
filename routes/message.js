@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-rout.put('/:mid', function(req, res, next) {
+router.put('/:mid', function(req, res, next) {
 	req.params.mid = req.params.mid || null;
 	Proxy.message.readMsg(req.params.mid, function(err, result) {
 		if(err) {
