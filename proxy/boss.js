@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewBoss = function(data, callback) {
-    var sql = "insert into boss values('" + data.username + "', '" + data.password + "', '" + data.realname + "', '" + data.sex + "', '" + data.phone + "', '" + data.addr + "', '" + data.idcard + "')";
+    var sql = "insert into boss values('' ,'" + data.phone + "', '" + data.password + "', '" + data.realname + "', '" + data.sex + "', '" + data.addr + "', '" + data.idcard + "')";
     conn.query(sql, callback);
 };
 
@@ -28,6 +28,16 @@ exports.rewriteBoss = function(bid, data, callback) {
  */
 exports.getBoss = function(bid, callback) {
     var sql = "select * from boss where id='" + bid + "'";
+    conn.query(sql, callback);
+};
+
+/**
+ * 获取店家列表
+ * @param  {String}   offset   [间隔]
+ * @param  {Function} callback [回调函数]
+ */
+exports.getBossList = function(offset, callback) {
+    var sql = "select * from boss limit 10 offset "+offset+"";
     conn.query(sql, callback);
 };
 

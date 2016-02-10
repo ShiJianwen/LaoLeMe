@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewComment = function(data, callback) {
-	var sql = "insert into comment values('"+data.restaurant+"', '"+data.food+"', '"+data.uid+"', '"+data.create_date+"', '"+data.content+"', '"+data.star_num+"')";
+	var sql = "insert into comment values('', '"+data.restaurant+"', '"+data.food+"', '"+data.uid+"', '"+data.create_date+"', '"+data.content+"', '"+data.star_num+"')";
 	conn.query(sql, callback);
 };
 
@@ -26,7 +26,7 @@ exports.deleteComment = function(cid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getCommentList = function(fid, offset, callback) {
-	var sql = "select * from comment limit 10 offset '"+offset+"' where food='"+fid+"'";
+	var sql = "select * from comment limit 10 offset "+offset+" where food='"+fid+"'";
 	conn.query(sql, callback);
 };
 

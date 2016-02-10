@@ -2,11 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Proxy = require('../proxy/index.js');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    console.log('this is user route');
-    next();
-});
 
 //新用户注册
 router.post('/', function(req, res, next) {
@@ -73,10 +68,11 @@ router.delete('/:uid', function(req, res, next) {
     }
 });
 
-router.get('/:uid', function(req, res, next) {
-    req.params.uid = req.params.uid || null;
-    if (req.params.uid) {
-        Proxy.user.getUser(req.params.uid, function(err, result) {
+router.get('/', function(req, res, next) {
+    req.query.uid = req.query.uid || null;
+    req.query.offset = req.query.offset || 0;
+    if (req.query.uid) {
+        Proxy.user.getUser(req.query.uid, function(err, result) {
             if (err) {
                 res.status(500).send({
                     msg: 'error',
@@ -89,12 +85,22 @@ router.get('/:uid', function(req, res, next) {
                 });
             }
         });
-    } else {
-        res.status(400).send({
-            msg: 'error',
-            err: 'please select an user'
+    } 
+    else {
+        Proxy.user.getUserList(req.query.offset, function(err, result) {
+            if(err) {
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
         });
-    }
+    }   
 });
 
 router.post('/login', function(req, res, next) {

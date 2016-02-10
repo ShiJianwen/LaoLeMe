@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewMsg = function(data, callback) {
-	var sql = "insert into message values('"+data.receiver+"', '"+data.sender+"', '"+data.create_date+"', '"+data.content+"')";
+	var sql = "insert into message values('', '"+data.receiver+"', '"+data.sender+"', '"+data.create_date+"', '"+data.content+"')";
 	conn.query(sql, callback);
 };
 
@@ -16,7 +16,7 @@ exports.addNewMsg = function(data, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getMsgList = function(uid, offset, callback) {
-	var sql = "select * from message limit 10 offset '"+offset+"' where receiver='"+uid+"'";
+	var sql = "select * from message limit 10 offset "+offset+" where receiver='"+uid+"'";
 	conn.query(sql, callback);
 };
 

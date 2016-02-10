@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewUser = function(data, callback) {
-    var sql = "insert into user values('" + data.username + "', '" + data.password + "', '" + data.realname + "', '" + data.sex + "', '" + data.phone + "', '" + data.addr + "')";
+    var sql = "insert into user values('', '" + data.phone + "', '" + data.password + "', '" + data.realname + "', '" + data.sex + "', '" + data.addr + "')";
     conn.query(sql, callback);
 };
 
@@ -37,7 +37,18 @@ exports.deleteUser = function(uid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getUser = function(uid, callback) {
-    var sql = "select * from user where id = '" + uid + "'";
+    var sql = "select * from user where id = " + uid + "";
+    conn.query(sql, callback);
+};
+
+/**
+ * 获取用户列表
+ * @param  {String}   offset   [间隔]
+ * @param  {Function} callback [回调函数]
+ */
+exports.getUserList = function(offset, callback) {
+    console.log(offset);
+    var sql = "select * from user limit 10 offset "+offset+"";
     conn.query(sql, callback);
 };
 

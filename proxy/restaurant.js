@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewRestaurant = function(data, callback) {
-	var sql = "insert into restaurant values('"+data.name+"', '"+data.categories+"', '"+data.boss+"', '"+data.addr+"')";
+	var sql = "insert into restaurant values('', '"+data.name+"', '"+data.categories+"', '"+data.boss+"', '"+data.addr+"')";
 	conn.query(sql, callback);
 };
 
@@ -37,7 +37,7 @@ exports.getOneRestaurant = function(rid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getRestaurantList = function(offset, callback) {
-	var sql = "select * from restaurant limit 10 offset '"+offset+"'";
+	var sql = "select * from restaurant limit 10 offset "+offset+"";
 	conn.query(sql, callback);
 };
 

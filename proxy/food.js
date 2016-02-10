@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewFood = function(data, callback) {
-	var sql = "insert into food values('"+data.name+"', '"+data.restaurant+"', '"+data.price+"', '"+data.sale_num+"', '"+data.enable+"')";
+	var sql = "insert into food values('', '"+data.name+"', '"+data.restaurant+"', '"+data.price+"', '"+data.sale_num+"', '"+data.enable+"')";
 	conn.query(sql, callback);
 };
 
@@ -37,7 +37,7 @@ exports.doSale = function(fid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getFoodList = function(rid, offset, callback) {
-	var sql = "select * from food limit 10 offset '"+offset+"' where restaurant='"+rid+"'";
+	var sql = "select * from food limit 10 offset "+offset+" where restaurant='"+rid+"'";
 	conn.query(sql, callback);
 };
 
