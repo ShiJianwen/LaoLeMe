@@ -9,9 +9,9 @@ var conn = mysql.createConnection({
 });
 conn.connect(function(err) {
 	if(!err) {
-		console.log('连接数据库成功');
+		console.log('db connected');
 	} else {
-		console.log('连接数据库出错');
+		console.log('db connect failed');
 		return false;
 	}
 });

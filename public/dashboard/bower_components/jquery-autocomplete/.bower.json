@@ -1,0 +1,19 @@
+{
+  "name": "jquery-autocomplete",
+  "version": "1.1.1",
+  "main": "./jquery.autocomplete.js",
+  "dependencies": {
+    "jquery": "1.8.3"
+  },
+  "homepage": "https://github.com/trendalytics/bower-jquery-autocomplete",
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.1",
+    "commit": "3b15c5cecd66222905db21de07494044d5cdd427"
+  },
+  "_source": "git://github.com/trendalytics/bower-jquery-autocomplete.git",
+  "_target": "^1.1.1",
+  "_originalSource": "jquery-autocomplete",
+  "_direct": true
+}

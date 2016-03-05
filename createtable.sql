@@ -29,7 +29,9 @@ CREATE TABLE restaurant (
 	name VARCHAR(20),
 	categories VARCHAR(6),
 	boss VARCHAR(6),
-	addr VARCHAR(30),
+	lat VARCHAR(10),
+	lng VARCHAR(10),
+	service_radius VARCHAR(10),
 	FOREIGN KEY (categories) REFERENCES categories(id),
 	FOREIGN KEY (boss) REFERENCES boss(id)
 );
@@ -51,6 +53,7 @@ CREATE TABLE food (
 );
 
 CREATE TABLE comment (
+	id VARCHAR(6) PRIMARY KEY NOT NULL,
 	restaurant VARCHAR(6) NOT NULL,
 	food VARCHAR(6) NOT NULL,
 	uid VARCHAR(6) NOT NULL,
@@ -58,7 +61,6 @@ CREATE TABLE comment (
 	content VARCHAR(140),
 	star_num VARCHAR(1),
 	reply VARCHAR(140),
-	PRIMARY KEY (restaurant, food),
 	FOREIGN KEY (uid) REFERENCES user(id)
 );
 
@@ -93,5 +95,5 @@ CREATE TABLE message (
 	sender VARCHAR(6),
 	create_date DATE,
 	content VARCHAR(100),
-	is_read VARCHAR(1)
+	is_read VARCHAR(1) DEFAULT 0
 );
