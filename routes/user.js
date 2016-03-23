@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Proxy = require('../proxy/index.js');
-
+var middleware = require('../middleware/middleware.js');
 
 //新用户注册
 router.post('/', function(req, res, next) {
@@ -68,7 +68,7 @@ router.delete('/:uid', function(req, res, next) {
     }
 });
 
-router.get('/', function(req, res, next) {
+router.get('/', middleware.isLoggedIn, function(req, res, next) {
     req.query.uid = req.query.uid || null;
     req.query.offset = req.query.offset || 0;
     if (req.query.uid) {

@@ -1,0 +1,499 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'bcrypt' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 warn package.json bae-nodejs@1.0.0 No repository field.
+5 warn package.json passport@0.3.2 No README data
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'bcrypt', null ]
+8 verbose cache add name=undefined spec="bcrypt" args=["bcrypt",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'bcrypt',
+9 verbose parsed url   path: 'bcrypt',
+9 verbose parsed url   href: 'bcrypt' }
+10 silly lockFile 51684124-bcrypt bcrypt
+11 verbose lock bcrypt /home/sibarone/.npm/51684124-bcrypt.lock
+12 silly lockFile 51684124-bcrypt bcrypt
+13 silly lockFile 51684124-bcrypt bcrypt
+14 verbose addNamed [ 'bcrypt', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile 1351601c-bcrypt bcrypt@
+17 verbose lock bcrypt@ /home/sibarone/.npm/1351601c-bcrypt.lock
+18 silly addNameRange { name: 'bcrypt', range: '*', hasData: false }
+19 verbose registry.get https://registry.npm.taobao.org/bcrypt not expired, no request
+20 silly addNameRange number 2 { name: 'bcrypt', range: '*', hasData: true }
+21 silly addNameRange versions [ 'bcrypt',
+21 silly addNameRange   [ '0.8.5',
+21 silly addNameRange     '0.8.4',
+21 silly addNameRange     '0.8.3',
+21 silly addNameRange     '0.8.2',
+21 silly addNameRange     '0.8.1',
+21 silly addNameRange     '0.8.0',
+21 silly addNameRange     '0.7.8',
+21 silly addNameRange     '0.7.7',
+21 silly addNameRange     '0.7.6',
+21 silly addNameRange     '0.7.5',
+21 silly addNameRange     '0.7.4',
+21 silly addNameRange     '0.7.3',
+21 silly addNameRange     '0.7.2',
+21 silly addNameRange     '0.7.1',
+21 silly addNameRange     '0.7.0',
+21 silly addNameRange     '0.6.0',
+21 silly addNameRange     '0.5.0',
+21 silly addNameRange     '0.4.1',
+21 silly addNameRange     '0.4.0',
+21 silly addNameRange     '0.3.2',
+21 silly addNameRange     '0.3.1',
+21 silly addNameRange     '0.3.0',
+21 silly addNameRange     '0.2.4',
+21 silly addNameRange     '0.2.3',
+21 silly addNameRange     '0.2.2',
+21 silly addNameRange     '0.1.3',
+21 silly addNameRange     '0.2.1',
+21 silly addNameRange     '0.2.0',
+21 silly addNameRange     '0.1.2' ] ]
+22 verbose addNamed [ 'bcrypt', '0.8.5' ]
+23 verbose addNamed [ '0.8.5', '0.8.5' ]
+24 silly lockFile eeaa1811-bcrypt-0-8-5 bcrypt@0.8.5
+25 verbose lock bcrypt@0.8.5 /home/sibarone/.npm/eeaa1811-bcrypt-0-8-5.lock
+26 silly lockFile eeaa1811-bcrypt-0-8-5 bcrypt@0.8.5
+27 silly lockFile eeaa1811-bcrypt-0-8-5 bcrypt@0.8.5
+28 silly lockFile 1351601c-bcrypt bcrypt@
+29 silly lockFile 1351601c-bcrypt bcrypt@
+30 silly resolved [ { name: 'bcrypt',
+30 silly resolved     description: 'A bcrypt library for NodeJS.',
+30 silly resolved     keywords:
+30 silly resolved      [ 'bcrypt',
+30 silly resolved        'password',
+30 silly resolved        'auth',
+30 silly resolved        'authentication',
+30 silly resolved        'encryption',
+30 silly resolved        'crypt',
+30 silly resolved        'crypto' ],
+30 silly resolved     main: './bcrypt',
+30 silly resolved     version: '0.8.5',
+30 silly resolved     author: { name: 'Nick Campbell', url: 'https://github.com/ncb000gt' },
+30 silly resolved     engines: { node: '>= 0.6.0' },
+30 silly resolved     repository:
+30 silly resolved      { type: 'git',
+30 silly resolved        url: 'git+https://github.com/ncb000gt/node.bcrypt.js.git' },
+30 silly resolved     license: 'MIT',
+30 silly resolved     bugs: { url: 'https://github.com/ncb000gt/node.bcrypt.js/issues' },
+30 silly resolved     scripts:
+30 silly resolved      { test: 'node-gyp configure build && nodeunit test',
+30 silly resolved        install: 'node-gyp rebuild' },
+30 silly resolved     dependencies: { bindings: '1.2.1', nan: '2.0.5' },
+30 silly resolved     devDependencies: { nodeunit: '~0.9.1' },
+30 silly resolved     contributors:
+30 silly resolved      [ [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object],
+30 silly resolved        [Object] ],
+30 silly resolved     gypfile: true,
+30 silly resolved     gitHead: '5d97708f06754d7d7989c67ba867002d10013615',
+30 silly resolved     homepage: 'https://github.com/ncb000gt/node.bcrypt.js#readme',
+30 silly resolved     _id: 'bcrypt@0.8.5',
+30 silly resolved     _shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+30 silly resolved     _from: 'bcrypt@',
+30 silly resolved     _npmVersion: '2.13.3',
+30 silly resolved     _nodeVersion: '3.0.0',
+30 silly resolved     _npmUser: { name: 'defunctzombie', email: 'shtylman@gmail.com' },
+30 silly resolved     dist:
+30 silly resolved      { shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+30 silly resolved        size: 24859,
+30 silly resolved        noattachment: false,
+30 silly resolved        tarball: 'http://registry.npm.taobao.org/bcrypt/download/bcrypt-0.8.5.tgz' },
+30 silly resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+30 silly resolved     directories: {},
+30 silly resolved     publish_time: 1439417515229,
+30 silly resolved     _cnpm_publish_time: 1439417515229,
+30 silly resolved     _resolved: 'https://registry.npm.taobao.org/bcrypt/download/bcrypt-0.8.5.tgz',
+30 silly resolved     readme: 'ERROR: No README data found!' } ]
+31 info install bcrypt@0.8.5 into /media/sibarone/文档/工作/Git/LaoLeMe
+32 info installOne bcrypt@0.8.5
+33 verbose node_modules/bcrypt unbuild
+34 verbose tar unpack /home/sibarone/.npm/bcrypt/0.8.5/package.tgz
+35 silly lockFile 600833b3--Git-LaoLeMe-node-modules-bcrypt tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+36 verbose lock tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt /home/sibarone/.npm/600833b3--Git-LaoLeMe-node-modules-bcrypt.lock
+37 silly lockFile 87beb2a8-one-npm-bcrypt-0-8-5-package-tgz tar:///home/sibarone/.npm/bcrypt/0.8.5/package.tgz
+38 verbose lock tar:///home/sibarone/.npm/bcrypt/0.8.5/package.tgz /home/sibarone/.npm/87beb2a8-one-npm-bcrypt-0-8-5-package-tgz.lock
+39 silly gunzTarPerm modes [ '755', '644' ]
+40 silly gunzTarPerm extractEntry package.json
+41 silly gunzTarPerm extractEntry .npmignore
+42 silly gunzTarPerm extractEntry README.md
+43 silly gunzTarPerm extractEntry LICENSE
+44 silly gunzTarPerm extractEntry bcrypt.js
+45 silly gunzTarPerm extractEntry binding.gyp
+46 silly gunzTarPerm extractEntry .travis.yml
+47 silly gunzTarPerm extractEntry CHANGELOG.md
+48 silly gunzTarPerm extractEntry examples/async_compare.js
+49 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+50 silly gunzTarPerm extractEntry test/async.js
+51 silly gunzTarPerm extractEntry test/repetitions.js
+52 silly gunzTarPerm extractEntry test/sync.js
+53 silly gunzTarPerm extractEntry Makefile
+54 silly gunzTarPerm extractEntry src/bcrypt.cc
+55 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+56 silly gunzTarPerm extractEntry src/blowfish.cc
+57 silly gunzTarPerm extractEntry src/node_blf.h
+58 silly gunzTarPerm extractEntry werker.yml
+59 silly lockFile 600833b3--Git-LaoLeMe-node-modules-bcrypt tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+60 silly lockFile 600833b3--Git-LaoLeMe-node-modules-bcrypt tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+61 silly lockFile 87beb2a8-one-npm-bcrypt-0-8-5-package-tgz tar:///home/sibarone/.npm/bcrypt/0.8.5/package.tgz
+62 silly lockFile 87beb2a8-one-npm-bcrypt-0-8-5-package-tgz tar:///home/sibarone/.npm/bcrypt/0.8.5/package.tgz
+63 info preinstall bcrypt@0.8.5
+64 verbose readDependencies using package.json deps
+65 verbose readDependencies using package.json deps
+66 verbose cache add [ 'bindings@1.2.1', null ]
+67 verbose cache add name=undefined spec="bindings@1.2.1" args=["bindings@1.2.1",null]
+68 verbose parsed url { protocol: null,
+68 verbose parsed url   slashes: null,
+68 verbose parsed url   auth: null,
+68 verbose parsed url   host: null,
+68 verbose parsed url   port: null,
+68 verbose parsed url   hostname: null,
+68 verbose parsed url   hash: null,
+68 verbose parsed url   search: null,
+68 verbose parsed url   query: null,
+68 verbose parsed url   pathname: 'bindings@1.2.1',
+68 verbose parsed url   path: 'bindings@1.2.1',
+68 verbose parsed url   href: 'bindings@1.2.1' }
+69 verbose cache add [ 'nan@2.0.5', null ]
+70 verbose cache add name=undefined spec="nan@2.0.5" args=["nan@2.0.5",null]
+71 verbose parsed url { protocol: null,
+71 verbose parsed url   slashes: null,
+71 verbose parsed url   auth: null,
+71 verbose parsed url   host: null,
+71 verbose parsed url   port: null,
+71 verbose parsed url   hostname: null,
+71 verbose parsed url   hash: null,
+71 verbose parsed url   search: null,
+71 verbose parsed url   query: null,
+71 verbose parsed url   pathname: 'nan@2.0.5',
+71 verbose parsed url   path: 'nan@2.0.5',
+71 verbose parsed url   href: 'nan@2.0.5' }
+72 verbose cache add name="bindings" spec="1.2.1" args=["bindings","1.2.1"]
+73 verbose parsed url { protocol: null,
+73 verbose parsed url   slashes: null,
+73 verbose parsed url   auth: null,
+73 verbose parsed url   host: null,
+73 verbose parsed url   port: null,
+73 verbose parsed url   hostname: null,
+73 verbose parsed url   hash: null,
+73 verbose parsed url   search: null,
+73 verbose parsed url   query: null,
+73 verbose parsed url   pathname: '1.2.1',
+73 verbose parsed url   path: '1.2.1',
+73 verbose parsed url   href: '1.2.1' }
+74 verbose addNamed [ 'bindings', '1.2.1' ]
+75 verbose addNamed [ '1.2.1', '1.2.1' ]
+76 silly lockFile e9060511-bindings-1-2-1 bindings@1.2.1
+77 verbose lock bindings@1.2.1 /home/sibarone/.npm/e9060511-bindings-1-2-1.lock
+78 verbose cache add name="nan" spec="2.0.5" args=["nan","2.0.5"]
+79 verbose parsed url { protocol: null,
+79 verbose parsed url   slashes: null,
+79 verbose parsed url   auth: null,
+79 verbose parsed url   host: null,
+79 verbose parsed url   port: null,
+79 verbose parsed url   hostname: null,
+79 verbose parsed url   hash: null,
+79 verbose parsed url   search: null,
+79 verbose parsed url   query: null,
+79 verbose parsed url   pathname: '2.0.5',
+79 verbose parsed url   path: '2.0.5',
+79 verbose parsed url   href: '2.0.5' }
+80 verbose addNamed [ 'nan', '2.0.5' ]
+81 verbose addNamed [ '2.0.5', '2.0.5' ]
+82 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
+83 verbose lock nan@2.0.5 /home/sibarone/.npm/0bd9141a-nan-2-0-5.lock
+84 verbose registry.get https://registry.npm.taobao.org/bindings not expired, no request
+85 verbose registry.get https://registry.npm.taobao.org/nan not expired, no request
+86 silly lockFile e9060511-bindings-1-2-1 bindings@1.2.1
+87 silly lockFile e9060511-bindings-1-2-1 bindings@1.2.1
+88 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
+89 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
+90 silly resolved [ { name: 'bindings',
+90 silly resolved     description: 'Helper module for loading your native module\'s .node file',
+90 silly resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+90 silly resolved     version: '1.2.1',
+90 silly resolved     author:
+90 silly resolved      { name: 'Nathan Rajlich',
+90 silly resolved        email: 'nathan@tootallnate.net',
+90 silly resolved        url: 'http://tootallnate.net' },
+90 silly resolved     repository:
+90 silly resolved      { type: 'git',
+90 silly resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+90 silly resolved     main: './bindings.js',
+90 silly resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+90 silly resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+90 silly resolved     license: 'MIT',
+90 silly resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+90 silly resolved     _id: 'bindings@1.2.1',
+90 silly resolved     scripts: {},
+90 silly resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+90 silly resolved     _from: 'bindings@1.2.1',
+90 silly resolved     _npmVersion: '1.4.14',
+90 silly resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+90 silly resolved     maintainers: [ [Object] ],
+90 silly resolved     dist:
+90 silly resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+90 silly resolved        size: 3625,
+90 silly resolved        noattachment: false,
+90 silly resolved        tarball: 'http://registry.npm.taobao.org/bindings/download/bindings-1.2.1.tgz' },
+90 silly resolved     directories: {},
+90 silly resolved     publish_time: 1403979205303,
+90 silly resolved     _cnpm_publish_time: 1403979205303,
+90 silly resolved     _resolved: 'https://registry.npm.taobao.org/bindings/download/bindings-1.2.1.tgz',
+90 silly resolved     readme: 'ERROR: No README data found!' },
+90 silly resolved   { name: 'nan',
+90 silly resolved     version: '2.0.5',
+90 silly resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+90 silly resolved     main: 'include_dirs.js',
+90 silly resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+90 silly resolved     scripts:
+90 silly resolved      { test: 'tap --gc test/js/*-test.js',
+90 silly resolved        'rebuild-tests': 'pangyp rebuild --msvs_version=2013 --directory test',
+90 silly resolved        docs: 'doc/.build.sh' },
+90 silly resolved     contributors:
+90 silly resolved      [ [Object],
+90 silly resolved        [Object],
+90 silly resolved        [Object],
+90 silly resolved        [Object],
+90 silly resolved        [Object],
+90 silly resolved        [Object],
+90 silly resolved        [Object] ],
+90 silly resolved     devDependencies:
+90 silly resolved      { bindings: '~1.2.1',
+90 silly resolved        'node-gyp': '~2.0.2',
+90 silly resolved        pangyp: '~2.2.0',
+90 silly resolved        tap: '~0.7.1',
+90 silly resolved        xtend: '~4.0.0' },
+90 silly resolved     license: 'MIT',
+90 silly resolved     gitHead: 'd13a2e9ce762fd130877b53c71d35963fa2cf689',
+90 silly resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+90 silly resolved     homepage: 'https://github.com/nodejs/nan#readme',
+90 silly resolved     _id: 'nan@2.0.5',
+90 silly resolved     _shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+90 silly resolved     _from: 'nan@2.0.5',
+90 silly resolved     _npmVersion: '2.13.3',
+90 silly resolved     _nodeVersion: '3.0.0',
+90 silly resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+90 silly resolved     maintainers: [ [Object], [Object] ],
+90 silly resolved     dist:
+90 silly resolved      { shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+90 silly resolved        size: 60391,
+90 silly resolved        noattachment: false,
+90 silly resolved        tarball: 'http://registry.npm.taobao.org/nan/download/nan-2.0.5.tgz' },
+90 silly resolved     directories: {},
+90 silly resolved     publish_time: 1439218423186,
+90 silly resolved     _cnpm_publish_time: 1439218423186,
+90 silly resolved     _resolved: 'https://registry.npm.taobao.org/nan/download/nan-2.0.5.tgz',
+90 silly resolved     readme: 'ERROR: No README data found!' } ]
+91 info install bindings@1.2.1 into /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+92 info install nan@2.0.5 into /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+93 info installOne bindings@1.2.1
+94 info installOne nan@2.0.5
+95 verbose node_modules/bcrypt/node_modules/bindings unbuild
+96 verbose node_modules/bcrypt/node_modules/nan unbuild
+97 verbose tar unpack /home/sibarone/.npm/bindings/1.2.1/package.tgz
+98 silly lockFile f0b8840a-les-bcrypt-node-modules-bindings tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+99 verbose lock tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings /home/sibarone/.npm/f0b8840a-les-bcrypt-node-modules-bindings.lock
+100 silly lockFile 94a60df7-e-npm-bindings-1-2-1-package-tgz tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz
+101 verbose lock tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz /home/sibarone/.npm/94a60df7-e-npm-bindings-1-2-1-package-tgz.lock
+102 verbose tar unpack /home/sibarone/.npm/nan/2.0.5/package.tgz
+103 silly lockFile 6889144c--modules-bcrypt-node-modules-nan tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan
+104 verbose lock tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan /home/sibarone/.npm/6889144c--modules-bcrypt-node-modules-nan.lock
+105 silly lockFile 64152e1e-barone-npm-nan-2-0-5-package-tgz tar:///home/sibarone/.npm/nan/2.0.5/package.tgz
+106 verbose lock tar:///home/sibarone/.npm/nan/2.0.5/package.tgz /home/sibarone/.npm/64152e1e-barone-npm-nan-2-0-5-package-tgz.lock
+107 silly gunzTarPerm modes [ '755', '644' ]
+108 silly gunzTarPerm modes [ '755', '644' ]
+109 silly gunzTarPerm extractEntry package.json
+110 silly gunzTarPerm extractEntry package.json
+111 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+112 silly gunzTarPerm extractEntry README.md
+113 silly gunzTarPerm extractEntry bindings.js
+114 silly gunzTarPerm extractEntry README.md
+115 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+116 silly gunzTarPerm extractEntry include_dirs.js
+117 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+118 silly gunzTarPerm extractEntry nan_converters.h
+119 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 420 ]
+120 silly gunzTarPerm extractEntry LICENSE.md
+121 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+122 silly lockFile f0b8840a-les-bcrypt-node-modules-bindings tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+123 silly lockFile f0b8840a-les-bcrypt-node-modules-bindings tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+124 silly gunzTarPerm extractEntry .dntrc
+125 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+126 silly gunzTarPerm extractEntry appveyor.yml
+127 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+128 silly lockFile 94a60df7-e-npm-bindings-1-2-1-package-tgz tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz
+129 silly lockFile 94a60df7-e-npm-bindings-1-2-1-package-tgz tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz
+130 info preinstall bindings@1.2.1
+131 verbose readDependencies using package.json deps
+132 verbose readDependencies using package.json deps
+133 silly resolved []
+134 verbose about to build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+135 info build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+136 verbose linkStuff [ false,
+136 verbose linkStuff   false,
+136 verbose linkStuff   false,
+136 verbose linkStuff   '/media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules' ]
+137 info linkStuff bindings@1.2.1
+138 verbose linkBins bindings@1.2.1
+139 verbose linkMans bindings@1.2.1
+140 verbose rebuildBundles bindings@1.2.1
+141 info install bindings@1.2.1
+142 silly gunzTarPerm extractEntry doc/new.md
+143 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
+144 silly gunzTarPerm extractEntry doc/.build.sh
+145 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 493 ]
+146 info postinstall bindings@1.2.1
+147 silly gunzTarPerm extractEntry doc/buffers.md
+148 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
+149 silly gunzTarPerm extractEntry doc/callback.md
+150 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 420 ]
+151 silly gunzTarPerm extractEntry doc/converters.md
+152 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 420 ]
+153 silly gunzTarPerm extractEntry doc/errors.md
+154 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 420 ]
+155 silly gunzTarPerm extractEntry doc/maybe_types.md
+156 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 420 ]
+157 silly gunzTarPerm extractEntry doc/methods.md
+158 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 420 ]
+159 silly gunzTarPerm extractEntry doc/asyncworker.md
+160 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 420 ]
+161 silly gunzTarPerm extractEntry doc/node_misc.md
+162 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 420 ]
+163 silly gunzTarPerm extractEntry doc/persistent.md
+164 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 420 ]
+165 silly gunzTarPerm extractEntry doc/scopes.md
+166 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 420 ]
+167 silly gunzTarPerm extractEntry doc/script.md
+168 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 420 ]
+169 silly gunzTarPerm extractEntry doc/string_bytes.md
+170 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 420 ]
+171 silly gunzTarPerm extractEntry doc/v8_internals.md
+172 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 420 ]
+173 silly gunzTarPerm extractEntry doc/v8_misc.md
+174 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 420 ]
+175 silly gunzTarPerm extractEntry nan.h
+176 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+177 silly gunzTarPerm extractEntry nan_callbacks.h
+178 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 420 ]
+179 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+180 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 420 ]
+181 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+182 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 420 ]
+183 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+184 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 420 ]
+185 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+186 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 420 ]
+187 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+188 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+189 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+190 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+191 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+192 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 420 ]
+193 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+194 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 420 ]
+195 silly gunzTarPerm extractEntry nan_new.h
+196 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+197 silly gunzTarPerm extractEntry nan_object_wrap.h
+198 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 420 ]
+199 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+200 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 420 ]
+201 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+202 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 420 ]
+203 silly gunzTarPerm extractEntry nan_string_bytes.h
+204 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+205 silly gunzTarPerm extractEntry nan_weak.h
+206 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 420 ]
+207 silly gunzTarPerm extractEntry CHANGELOG.md
+208 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+209 silly gunzTarPerm extractEntry tools/package.json
+210 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 420 ]
+211 silly gunzTarPerm extractEntry tools/README.md
+212 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 420 ]
+213 silly gunzTarPerm extractEntry tools/1to2.js
+214 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 493 ]
+215 silly lockFile 6889144c--modules-bcrypt-node-modules-nan tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan
+216 silly lockFile 6889144c--modules-bcrypt-node-modules-nan tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan
+217 silly lockFile 64152e1e-barone-npm-nan-2-0-5-package-tgz tar:///home/sibarone/.npm/nan/2.0.5/package.tgz
+218 silly lockFile 64152e1e-barone-npm-nan-2-0-5-package-tgz tar:///home/sibarone/.npm/nan/2.0.5/package.tgz
+219 info preinstall nan@2.0.5
+220 verbose readDependencies using package.json deps
+221 verbose readDependencies using package.json deps
+222 silly resolved []
+223 verbose about to build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan
+224 info build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/nan
+225 verbose linkStuff [ false,
+225 verbose linkStuff   false,
+225 verbose linkStuff   false,
+225 verbose linkStuff   '/media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules' ]
+226 info linkStuff nan@2.0.5
+227 verbose linkBins nan@2.0.5
+228 verbose linkMans nan@2.0.5
+229 verbose rebuildBundles nan@2.0.5
+230 info install nan@2.0.5
+231 info postinstall nan@2.0.5
+232 verbose about to build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+233 info build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt
+234 verbose linkStuff [ false,
+234 verbose linkStuff   false,
+234 verbose linkStuff   false,
+234 verbose linkStuff   '/media/sibarone/文档/工作/Git/LaoLeMe/node_modules' ]
+235 info linkStuff bcrypt@0.8.5
+236 verbose linkBins bcrypt@0.8.5
+237 verbose linkMans bcrypt@0.8.5
+238 verbose rebuildBundles bcrypt@0.8.5
+239 verbose rebuildBundles [ 'bindings', 'nan' ]
+240 info install bcrypt@0.8.5
+241 verbose unsafe-perm in lifecycle false
+242 info bcrypt@0.8.5 Failed to exec install script
+243 verbose node_modules/bcrypt unbuild
+244 warn This failure might be due to the use of legacy binary "node"
+245 warn For further explanations, please read
+/usr/share/doc/nodejs/README.Debian
+246 info preuninstall bcrypt@0.8.5
+247 info uninstall bcrypt@0.8.5
+248 verbose true,/media/sibarone/文档/工作/Git/LaoLeMe/node_modules,/media/sibarone/文档/工作/Git/LaoLeMe/node_modules unbuild bcrypt@0.8.5
+249 info postuninstall bcrypt@0.8.5
+250 error bcrypt@0.8.5 install: `node-gyp rebuild`
+250 error Exit status 1
+251 error Failed at the bcrypt@0.8.5 install script.
+251 error This is most likely a problem with the bcrypt package,
+251 error not with npm itself.
+251 error Tell the author that this fails on your system:
+251 error     node-gyp rebuild
+251 error You can get their info via:
+251 error     npm owner ls bcrypt
+251 error There is likely additional logging output above.
+252 error System Linux 3.16.0-44-generic
+253 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "--save" "bcrypt"
+254 error cwd /media/sibarone/文档/工作/Git/LaoLeMe
+255 error node -v v0.10.25
+256 error npm -v 1.4.21
+257 error code ELIFECYCLE
+258 verbose exit [ 1, true ]

@@ -4,8 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
+var middleware = require('./middleware/middleware.js');
 
 var app = express();
 
@@ -21,8 +25,46 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
+app.use(session({
+    secret: 'laoleme.duapp.com',
+    cookie: {
+        maxAge: 60000
+    },
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 
+passport.use('root', new LocalStrategy(function(username, password, done) {
+    var administrator = {
+        id: '1',
+        username: 'root',
+        password: 'root'
+    };
+
+    if (username !== administrator.username) {
+        return done(null, false, {
+            message: '用户名错误'
+        });
+    }
+    if (password !== administrator.password) {
+        return done(null, false, {
+            message: '密码错误'
+        });
+    }
+
+    return done(null, user);
+}));
+
+passport.serializeUser(function(user, done) {
+    console.log(user);
+    done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+    done(err, user);
+});
 //各种路由各种屌 
 app.use('/api/v1/user', routes.user);
 app.use('/api/v1/boss', routes.boss);
@@ -37,6 +79,29 @@ app.use('/api/v1/categories', routes.categories);
 app.use('/dashboard', function(req, res) {
     res.sendfile('./dashboard/index.html');
 });
+app.post('/login', function(req, res, next) {
+    req.query.type = req.query.type || null;
+    if (req.query.type) {
+        if (req.query.type === '1') {
+            
+        }
+        if (req.query.type === '2') {
+            
+        }
+        if (req.query.type === '3') {
+            passport.authenticate('local', {
+                successFlash: '登录成功',
+                failureFlash: '登录失败'
+            });
+        }
+    } else {
+        res.status(400).send({
+            msg: 'error',
+            err: 'please select a role'
+        });
+    }
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

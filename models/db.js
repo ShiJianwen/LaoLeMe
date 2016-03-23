@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var dev = false;
+var dev = true;
 var conn = mysql.createConnection({
     host: dev ? '127.0.0.1' : 'sqld.duapp.com',
     user: dev ? 'root' : '87b918b63554437c8da82874f7fd958b',
@@ -12,6 +12,7 @@ conn.connect(function(err) {
 		console.log('db connected');
 	} else {
 		console.log('db connect failed');
+		console.log(err);
 		return false;
 	}
 });
