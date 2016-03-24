@@ -68,9 +68,9 @@ passport.deserializeUser(function(user, done) {
 //各种路由各种屌 
 // app.use('/api/v1', middleware.isLoggedIn);
 app.use('/api/v1/user', middleware.isLoggedIn, routes.user);
-app.use('/api/v1/boss', routes.boss);
-app.use('/api/v1/restaurant', routes.restaurant);
-app.use('/api/v1/food', routes.food);
+app.use('/api/v1/boss', middleware.isLoggedIn, routes.boss);
+app.use('/api/v1/restaurant', middleware.isLoggedIn, routes.restaurant);
+app.use('/api/v1/food', middleware.isLoggedIn, routes.food);
 app.use('/api/v1/order', routes.order);
 app.use('/api/v1/comment', routes.comment);
 app.use('/api/v1/feedback', routes.feedback);
@@ -82,7 +82,6 @@ app.use('/dashboard', middleware.isLoggedIn, function(req, res) {
     res.sendfile('./dashboard/index.html');
 });
 app.post('/api/v1/login', function(req, res, next) {
-    console.log('login');
     passport.authenticate('root', function(err, user, info) {
         if(err) {
             return next(err);

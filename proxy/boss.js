@@ -41,6 +41,15 @@ exports.getBossList = function(offset, callback) {
     conn.query(sql, callback);
 };
 
+exports.getHadResBossList = function(offset, callback) {
+    var sql = "select * from boss where boss.id in (select boss from restaurant) limit 10 offset "+offset+"";
+    conn.query(sql, callback);
+};
+
+exports.getNotHadResBossList = function(offset, callback) {
+    var sql = "select * from boss where boss.id not in (select boss from restaurant) limit 10 offset "+offset+"";
+    conn.query(sql, callback);
+};
 /**
  * 删除店家
  * @param  {String}   bid      [店家id]
