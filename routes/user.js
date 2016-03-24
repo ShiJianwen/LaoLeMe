@@ -68,7 +68,7 @@ router.delete('/:uid', function(req, res, next) {
     }
 });
 
-router.get('/', middleware.isLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
     req.query.uid = req.query.uid || null;
     req.query.offset = req.query.offset || 0;
     if (req.query.uid) {
@@ -103,56 +103,4 @@ router.get('/', middleware.isLoggedIn, function(req, res, next) {
     }   
 });
 
-router.post('/login', function(req, res, next) {
-    req.query.type = req.query.type || null;
-    if (req.query.type) {
-        if (req.query.type === '1') {
-            Proxy.user.doLogin(req.body.username, req.body.password, function(err, result) {
-                if (err) {
-                    res.status(500).send({
-                        msg: 'error',
-                        err: err
-                    });
-                } else {
-                    if (result) {
-                        res.send({
-                            msg: 'success',
-                            result: result
-                        });
-                    } else {
-                        res.send({
-                            msg: '登录失败'
-                        });
-                    }
-                }
-            });
-        }
-        if (req.query.type === '2') {
-            Proxy.boss.doLogin(req.body.username, req.body.password, function(err, result) {
-                if (err) {
-                    res.status(500).send({
-                        msg: 'error',
-                        err: err
-                    });
-                } else {
-                    if (result) {
-                        res.send({
-                            msg: 'success',
-                            result: result
-                        });
-                    } else {
-                        res.send({
-                            msg: '登录失败'
-                        });
-                    }
-                }
-            });
-        }
-    } else {
-        res.status(400).send({
-            msg: 'error',
-            err: 'please select a role'
-        });
-    }
-});
 module.exports = router;

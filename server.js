@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+var flash = require('express-flash');
 var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
@@ -36,6 +37,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 passport.use('root', new LocalStrategy(function(username, password, done) {
     var administrator = {
@@ -43,7 +45,6 @@ passport.use('root', new LocalStrategy(function(username, password, done) {
         username: 'root',
         password: 'root'
     };
-
     if (username !== administrator.username) {
         return done(null, false, {
             message: '用户名错误'
@@ -55,18 +56,18 @@ passport.use('root', new LocalStrategy(function(username, password, done) {
         });
     }
 
-    return done(null, user);
+    return done(null, administrator);
 }));
 
 passport.serializeUser(function(user, done) {
-    console.log(user);
     done(null, user);
 });
 passport.deserializeUser(function(user, done) {
-    done(err, user);
+    done(null, user);
 });
 //各种路由各种屌 
-app.use('/api/v1/user', routes.user);
+// app.use('/api/v1', middleware.isLoggedIn);
+app.use('/api/v1/user', middleware.isLoggedIn, routes.user);
 app.use('/api/v1/boss', routes.boss);
 app.use('/api/v1/restaurant', routes.restaurant);
 app.use('/api/v1/food', routes.food);
@@ -76,30 +77,32 @@ app.use('/api/v1/feedback', routes.feedback);
 app.use('/api/v1/message', routes.message);
 app.use('/api/v1/helper', routes.helper);
 app.use('/api/v1/categories', routes.categories);
-app.use('/dashboard', function(req, res) {
+
+app.use('/dashboard', middleware.isLoggedIn, function(req, res) {
     res.sendfile('./dashboard/index.html');
 });
-app.post('/login', function(req, res, next) {
-    req.query.type = req.query.type || null;
-    if (req.query.type) {
-        if (req.query.type === '1') {
-            
+app.post('/api/v1/login', function(req, res, next) {
+    console.log('login');
+    passport.authenticate('root', function(err, user, info) {
+        if(err) {
+            return next(err);
         }
-        if (req.query.type === '2') {
-            
+        if(!user) {
+            res.status(400).send(info);
         }
-        if (req.query.type === '3') {
-            passport.authenticate('local', {
-                successFlash: '登录成功',
-                failureFlash: '登录失败'
-            });
-        }
-    } else {
-        res.status(400).send({
-            msg: 'error',
-            err: 'please select a role'
+        console.log(user);
+        req.logIn(user, function(err) {
+            if(err) {
+                return next(err);
+            } 
+            console.log(req.session);
+            res.send(user);
         });
-    }
+    })(req, res, next);
+});
+app.get('/api/v1/logout', function(req, res) {
+    req.logout();
+    res.send({msg: '退出登录'});
 });
 
 

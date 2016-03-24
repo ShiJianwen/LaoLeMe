@@ -12,6 +12,7 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+    "express-flash": "0.0.2",
     "express-session": "^1.13.0",
     "morgan": "~1.6.1",
     "mysql": "^2.10.2",
