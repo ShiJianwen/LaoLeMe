@@ -34,20 +34,20 @@
 18 silly addNameRange { name: 'bcrypt', range: '*', hasData: false }
 19 verbose request where is /bcrypt
 20 verbose request registry https://registry.npm.taobao.org/
-21 verbose request id 9e624fd4941e93c9
+21 verbose request id fd2a89c46e66061b
 22 verbose url raw /bcrypt
 23 verbose url resolving [ 'https://registry.npm.taobao.org/', './bcrypt' ]
 24 verbose url resolved https://registry.npm.taobao.org/bcrypt
 25 verbose request where is https://registry.npm.taobao.org/bcrypt
-26 info trying registry request attempt 1 at 23:20:18
+26 info trying registry request attempt 1 at 19:10:44
 27 verbose etag "1387a-hk8XyWSjYFxTfFqtVi22Dg"
 28 http GET https://registry.npm.taobao.org/bcrypt
 29 http 304 https://registry.npm.taobao.org/bcrypt
 30 silly registry.get cb [ 304,
-30 silly registry.get   { date: 'Thu, 24 Mar 2016 15:20:18 GMT',
+30 silly registry.get   { date: 'Fri, 25 Mar 2016 11:10:45 GMT',
 30 silly registry.get     connection: 'keep-alive',
 30 silly registry.get     etag: '"1387a-hk8XyWSjYFxTfFqtVi22Dg"',
-30 silly registry.get     'x-readtime': '62' } ]
+30 silly registry.get     'x-readtime': '73' } ]
 31 verbose etag https://registry.npm.taobao.org/bcrypt from cache
 32 silly addNameRange number 2 { name: 'bcrypt', range: '*', hasData: true }
 33 silly addNameRange versions [ 'bcrypt',
@@ -244,39 +244,39 @@
 93 verbose addNamed [ '2.0.5', '2.0.5' ]
 94 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
 95 verbose lock nan@2.0.5 /home/sibarone/.npm/0bd9141a-nan-2-0-5.lock
-96 verbose request where is /nan
+96 verbose request where is /bindings
 97 verbose request registry https://registry.npm.taobao.org/
-98 verbose url raw /nan
-99 verbose url resolving [ 'https://registry.npm.taobao.org/', './nan' ]
-100 verbose url resolved https://registry.npm.taobao.org/nan
-101 verbose request where is https://registry.npm.taobao.org/nan
-102 info trying registry request attempt 1 at 23:20:18
-103 verbose etag "1aa86-dZsykXMh+SVq2wB0u8m21w"
-104 http GET https://registry.npm.taobao.org/nan
-105 verbose request where is /bindings
+98 verbose url raw /bindings
+99 verbose url resolving [ 'https://registry.npm.taobao.org/', './bindings' ]
+100 verbose url resolved https://registry.npm.taobao.org/bindings
+101 verbose request where is https://registry.npm.taobao.org/bindings
+102 info trying registry request attempt 1 at 19:10:45
+103 verbose etag "4b2e-a24waKust8q5VWWvOyVmbQ"
+104 http GET https://registry.npm.taobao.org/bindings
+105 verbose request where is /nan
 106 verbose request registry https://registry.npm.taobao.org/
-107 verbose url raw /bindings
-108 verbose url resolving [ 'https://registry.npm.taobao.org/', './bindings' ]
-109 verbose url resolved https://registry.npm.taobao.org/bindings
-110 verbose request where is https://registry.npm.taobao.org/bindings
-111 info trying registry request attempt 1 at 23:20:18
-112 verbose etag "4b2e-a24waKust8q5VWWvOyVmbQ"
-113 http GET https://registry.npm.taobao.org/bindings
+107 verbose url raw /nan
+108 verbose url resolving [ 'https://registry.npm.taobao.org/', './nan' ]
+109 verbose url resolved https://registry.npm.taobao.org/nan
+110 verbose request where is https://registry.npm.taobao.org/nan
+111 info trying registry request attempt 1 at 19:10:45
+112 verbose etag "1aa86-dZsykXMh+SVq2wB0u8m21w"
+113 http GET https://registry.npm.taobao.org/nan
 114 http 304 https://registry.npm.taobao.org/bindings
 115 silly registry.get cb [ 304,
-115 silly registry.get   { date: 'Thu, 24 Mar 2016 15:20:18 GMT',
+115 silly registry.get   { date: 'Fri, 25 Mar 2016 11:10:45 GMT',
 115 silly registry.get     connection: 'keep-alive',
 115 silly registry.get     etag: '"4b2e-a24waKust8q5VWWvOyVmbQ"',
-115 silly registry.get     'x-readtime': '31' } ]
+115 silly registry.get     'x-readtime': '26' } ]
 116 verbose etag https://registry.npm.taobao.org/bindings from cache
 117 silly lockFile e9060511-bindings-1-2-1 bindings@1.2.1
 118 silly lockFile e9060511-bindings-1-2-1 bindings@1.2.1
 119 http 304 https://registry.npm.taobao.org/nan
 120 silly registry.get cb [ 304,
-120 silly registry.get   { date: 'Thu, 24 Mar 2016 15:20:19 GMT',
+120 silly registry.get   { date: 'Fri, 25 Mar 2016 11:10:45 GMT',
 120 silly registry.get     connection: 'keep-alive',
 120 silly registry.get     etag: '"1aa86-dZsykXMh+SVq2wB0u8m21w"',
-120 silly registry.get     'x-readtime': '292' } ]
+120 silly registry.get     'x-readtime': '112' } ]
 121 verbose etag https://registry.npm.taobao.org/nan from cache
 122 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
 123 silly lockFile 0bd9141a-nan-2-0-5 nan@2.0.5
@@ -376,10 +376,10 @@
 141 silly gunzTarPerm modes [ '755', '644' ]
 142 silly gunzTarPerm modes [ '755', '644' ]
 143 silly gunzTarPerm extractEntry package.json
-144 silly gunzTarPerm extractEntry README.md
-145 silly gunzTarPerm extractEntry bindings.js
-146 silly gunzTarPerm extractEntry package.json
-147 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+144 silly gunzTarPerm extractEntry package.json
+145 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+146 silly gunzTarPerm extractEntry README.md
+147 silly gunzTarPerm extractEntry bindings.js
 148 silly gunzTarPerm extractEntry README.md
 149 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
 150 silly gunzTarPerm extractEntry include_dirs.js
@@ -392,30 +392,30 @@
 157 silly lockFile f0b8840a-les-bcrypt-node-modules-bindings tar:///media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
 158 silly lockFile 94a60df7-e-npm-bindings-1-2-1-package-tgz tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz
 159 silly lockFile 94a60df7-e-npm-bindings-1-2-1-package-tgz tar:///home/sibarone/.npm/bindings/1.2.1/package.tgz
-160 info preinstall bindings@1.2.1
-161 verbose readDependencies using package.json deps
-162 verbose readDependencies using package.json deps
-163 silly resolved []
-164 verbose about to build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
-165 info build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
-166 verbose linkStuff [ false,
-166 verbose linkStuff   false,
-166 verbose linkStuff   false,
-166 verbose linkStuff   '/media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules' ]
-167 info linkStuff bindings@1.2.1
-168 verbose linkBins bindings@1.2.1
-169 verbose linkMans bindings@1.2.1
-170 verbose rebuildBundles bindings@1.2.1
-171 info install bindings@1.2.1
-172 silly gunzTarPerm extractEntry .dntrc
-173 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
-174 silly gunzTarPerm extractEntry appveyor.yml
-175 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
-176 info postinstall bindings@1.2.1
-177 silly gunzTarPerm extractEntry doc/new.md
-178 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
-179 silly gunzTarPerm extractEntry doc/.build.sh
-180 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 493 ]
+160 silly gunzTarPerm extractEntry .dntrc
+161 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+162 silly gunzTarPerm extractEntry appveyor.yml
+163 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+164 info preinstall bindings@1.2.1
+165 verbose readDependencies using package.json deps
+166 verbose readDependencies using package.json deps
+167 silly resolved []
+168 verbose about to build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+169 info build /media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules/bindings
+170 verbose linkStuff [ false,
+170 verbose linkStuff   false,
+170 verbose linkStuff   false,
+170 verbose linkStuff   '/media/sibarone/文档/工作/Git/LaoLeMe/node_modules/bcrypt/node_modules' ]
+171 info linkStuff bindings@1.2.1
+172 verbose linkBins bindings@1.2.1
+173 verbose linkMans bindings@1.2.1
+174 verbose rebuildBundles bindings@1.2.1
+175 info install bindings@1.2.1
+176 silly gunzTarPerm extractEntry doc/new.md
+177 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
+178 silly gunzTarPerm extractEntry doc/.build.sh
+179 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 493 ]
+180 info postinstall bindings@1.2.1
 181 silly gunzTarPerm extractEntry doc/buffers.md
 182 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
 183 silly gunzTarPerm extractEntry doc/callback.md

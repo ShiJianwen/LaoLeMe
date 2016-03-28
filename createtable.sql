@@ -1,7 +1,7 @@
 CREATE TABLE user (
 	id VARCHAR(6) PRIMARY KEY NOT NULL,
 	username VARCHAR(18),
-	password VARCHAR(18),
+	password VARCHAR(64),
 	realname VARCHAR(10),
 	sex VARCHAR(1),
 	phone VARCHAR(12),
@@ -11,7 +11,7 @@ CREATE TABLE user (
 CREATE TABLE boss (
 	id VARCHAR(6) PRIMARY KEY NOT NULL,
 	username VARCHAR(18),
-	password VARCHAR(18),
+	password VARCHAR(64),
 	realname VARCHAR(10),
 	sex VARCHAR(1),
 	phone VARCHAR(12),

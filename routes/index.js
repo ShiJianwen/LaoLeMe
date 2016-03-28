@@ -8,4 +8,3 @@ exports.feedback = require('./feedback.js');
 exports.message = require('./message.js');
 exports.helper = require('./helper.js');
 exports.categories = require('./categories.js');
-exports.dashboard = require('./dashboard.js');

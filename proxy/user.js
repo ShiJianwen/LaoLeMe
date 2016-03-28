@@ -41,6 +41,10 @@ exports.getUser = function(uid, callback) {
     conn.query(sql, callback);
 };
 
+exports.getUserByPhone = function(username, callback) {
+    var sql = "select * from user where phone="+username+"";
+    conn.query(sql, callback);
+};
 /**
  * 获取用户列表
  * @param  {String}   offset   [间隔]

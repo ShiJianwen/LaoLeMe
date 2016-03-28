@@ -16,9 +16,15 @@ router.get('/ip', function(req, res, next) {
 router.get('/address', function(req, res, next) {
 	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	nodegrass.get('http://apis.map.qq.com/ws/location/v1/ip?ip='+ip.split(', ')[0]+'&key='+config.key, function(data, status, header) {
-		res.send({
-			result: data
-		});
+		if(status === 200) {
+			res.send({
+				result: data
+			});
+		} else {
+			res.status(500).send({
+				result: data
+			});
+		}
 	});
 });
 
@@ -27,6 +33,21 @@ router.get('/searchsuggest', function(req, res, next) {
 		res.send({
 			result: data
 		});
+	});
+});
+
+router.get('/geocoder', function(req, res, next) {
+	console.log(req.query.address);
+	nodegrass.get('http://apis.map.qq.com/ws/geocoder/v1?address='+req.query.address+'&key='+config.key, function(data, status, header) {
+		if(status === 200) {
+			res.send({
+				result: data
+			});
+		} else {
+			res.status(500).send({
+				result: data
+			});
+		}
 	});
 });
 

@@ -8,8 +8,8 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('express-flash');
 var LocalStrategy = require('passport-local').Strategy;
-
 var routes = require('./routes/index');
+var proxy = require('./proxy/index.js');
 var middleware = require('./middleware/middleware.js');
 
 var app = express();
@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(session({
     secret: 'laoleme.duapp.com',
     cookie: {
-        maxAge: 60000
+        maxAge: 3600000
     },
     resave: true,
     saveUninitialized: true
@@ -59,6 +59,27 @@ passport.use('root', new LocalStrategy(function(username, password, done) {
     return done(null, administrator);
 }));
 
+passport.use('local', new LocalStrategy(function(username, password, done) {
+    proxy.user.getUserByPhone(username, function(err, user) {
+        if(!user) {
+            return done(null, false, {message: '用户名不存在'});
+        }
+        if(bcompare(password, user.password)) {
+            return done(null, user);
+        } else {
+            return done(null, false, {message: '密码错误'});
+        }
+    });
+}));
+
+function bcompare(password, hash) {
+    var crypto = require('crypto');
+    var sha1 = crypto.createHash('sha1');
+    sha1.update(password);
+    var encode = sha1.digest('hex');
+    return encode === hash;
+}
+
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -78,7 +99,7 @@ app.use('/api/v1/message', routes.message);
 app.use('/api/v1/helper', routes.helper);
 app.use('/api/v1/categories', routes.categories);
 
-app.use('/dashboard', middleware.isLoggedIn, function(req, res) {
+app.use('/dashboard', function(req, res) {
     res.sendfile('./dashboard/index.html');
 });
 app.post('/api/v1/login', function(req, res, next) {
@@ -89,12 +110,10 @@ app.post('/api/v1/login', function(req, res, next) {
         if(!user) {
             res.status(400).send(info);
         }
-        console.log(user);
         req.logIn(user, function(err) {
             if(err) {
                 return next(err);
             } 
-            console.log(req.session);
             res.send(user);
         });
     })(req, res, next);

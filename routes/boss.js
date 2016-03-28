@@ -5,6 +5,10 @@ var Proxy = require('../proxy/index.js');
 
 
 router.post('/', function(req, res, next) {
+    var crypto = require('crypto');
+    var sha1 = crypto.createHash('sha1');
+    sha1.update(req.body.password);
+    req.body.password = sha1.digest('hex');
     Proxy.boss.addNewBoss(req.body, function(err, result) {
         if (err) {
             res.status(500).send({
