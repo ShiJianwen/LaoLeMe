@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(session({
     secret: 'laoleme.duapp.com',
     cookie: {
-        maxAge: 3600000
+        maxAge: 2*3600*1000
     },
     resave: true,
     saveUninitialized: true
