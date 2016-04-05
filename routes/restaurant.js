@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Proxy = require('../proxy/index.js');
-
-router.post('/', function(req, res, next) {
+var middleware = require('../middleware/middleware.js');
+router.post('/', middleware.isLoggedIn, function(req, res, next) {
     Proxy.restaurant.addNewRestaurant(req.body, function(err, result) {
         if (err) {
             res.status(500).send({
@@ -23,6 +23,7 @@ router.put('/:rid', function(req, res, next) {
     if (req.params.rid) {
         Proxy.restaurant.rewriteRestaurant(req.params.rid, req.body, function(err, result) {
             if (err) {
+                console.log(err);
                 res.status(500).send({
                     msg: 'error',
                     err: err
@@ -47,6 +48,8 @@ router.get('/', function(req, res, next) {
     req.query.q = req.query.q || null;
     req.query.rid = req.query.rid || null;
     req.query.categories = req.query.categories || null;
+    req.query.city = req.query.city || null;
+    req.query.bid = req.query.bid || null;
     //获取指定店铺
     if (req.query.rid) {
         Proxy.restaurant.getOneRestaurant(req.query.rid, function(err, result) {
@@ -63,8 +66,23 @@ router.get('/', function(req, res, next) {
             }
         });
     }
+    else if (req.query.bid) {
+        Proxy.restaurant.getRestaurantByBoss(req.query.bid, function(err, result) {
+            if (err) {
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                return res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
+        });
+    }
     //店铺搜索
-    if (req.query.q) {
+    else if (req.query.q) {
         Proxy.restaurant.searchRestaurant(req.query.q, function(err, result) {
             if (err) {
                 res.status(500).send({
@@ -80,8 +98,23 @@ router.get('/', function(req, res, next) {
         });
     }
 
-    if (req.query.categories) {
+    else if (req.query.categories) {
         Proxy.restaurant.getRestaurantByCategories(req.query.categories, function(err, result) {
+            if (err) {
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
+        });
+    }
+    else if (req.query.city) {
+        Proxy.restaurant.getRestaurantListByPlace(req.query.city, req.query.offset, function(err, result) {
             if (err) {
                 res.status(500).send({
                     msg: 'error',
@@ -97,6 +130,7 @@ router.get('/', function(req, res, next) {
     } else {
         Proxy.restaurant.getRestaurantList(req.query.offset, function(err, result) {
             if (err) {
+                console.log(err);
                 res.status(500).send({
                     msg: 'error',
                     err: err
@@ -111,7 +145,7 @@ router.get('/', function(req, res, next) {
     }
 });
 
-router.delete('/:rid', function(req, res, next) {
+router.delete('/:rid', middleware.isLoggedIn, function(req, res, next) {
     req.params.rid = req.params.rid || null;
     if (req.params.rid) {
         Proxy.restaurant.deleteRestaurant(req.params.rid, function(err, result) {

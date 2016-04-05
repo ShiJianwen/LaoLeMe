@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewComment = function(data, callback) {
-	var sql = "insert into comment values('', '"+data.restaurant+"', '"+data.food+"', '"+data.uid+"', '"+data.create_date+"', '"+data.content+"', '"+data.star_num+"')";
+	var sql = "insert into comment values('', '"+data.restaurant+"', '"+data.food+"', '"+data.uid+"', '"+data.create_date+"', '"+data.content+"', '', '')";
 	conn.query(sql, callback);
 };
 
@@ -26,12 +26,22 @@ exports.deleteComment = function(cid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getCommentList = function(fid, offset, callback) {
-	var sql = "select * from comment limit 10 offset "+offset+" where food='"+fid+"'";
+	var sql = "select comment.*, user.realname as username from comment, user where food='"+fid+"' and user.id=comment.uid limit 10 offset "+offset+"";
 	conn.query(sql, callback);
 };
 
 exports.getCommentByUid = function(uid, offset, callback) {
-	var sql = "select * from comment limit 10 offset '"+offset+"' where uid='"+uid+"'";
+	var sql = "select * from comment where uid='"+uid+"' limit 10 offset "+offset+"";
+	conn.query(sql, callback);
+};
+
+exports.getCommentById = function(cid, callback) {
+	var sql = "select comment.*, user.realname from comment, user where comment.id='"+cid+"' and user.id=comment.uid";
+	conn.query(sql, callback);
+};
+
+exports.getCommentListByRestaurant = function(rid, offset, callback) {
+	var sql = "select comment.*, user.realname as username, food.name as foodname from comment, user, food where comment.restaurant='"+rid+"' and user.id=comment.uid and food.id=comment.food limit 10 offset "+offset+"";
 	conn.query(sql, callback);
 };
 
@@ -42,7 +52,7 @@ exports.getCommentByUid = function(uid, offset, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.replyComment = function(cid, content, callback) {
-	var sql = "update comment set content='"+content+"' where id='"+cid+"'";
+	var sql = "update comment set reply='"+content+"' where id='"+cid+"'";
 	conn.query(sql, callback);
 };
 

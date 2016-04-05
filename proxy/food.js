@@ -21,6 +21,7 @@ exports.rewriteFood = function(fid, data, callback) {
 	conn.query(sql, callback);
 };
 
+
 /**
  * 增加菜品销售量
  * @param  {String}   fid      [菜品id]
@@ -37,7 +38,7 @@ exports.doSale = function(fid, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getFoodList = function(rid, offset, callback) {
-	var sql = "select * from food limit 10 offset "+offset+" where restaurant='"+rid+"'";
+	var sql = "select * from food where restaurant="+rid+"";
 	conn.query(sql, callback);
 };
 

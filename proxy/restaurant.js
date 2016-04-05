@@ -6,7 +6,7 @@ var conn = require('../models/db.js');
  * @param {Function} callback [回调函数]
  */
 exports.addNewRestaurant = function(data, callback) {
-	var sql = "insert into restaurant values('', '"+data.name+"', '"+data.categories+"', '"+data.boss+"', '"+data.city+"')";
+	var sql = "insert into restaurant values('', '"+data.name+"', '"+data.boss+"', '"+data.city+"', '"+data.describe+"')";
 	conn.query(sql, callback);
 };
 
@@ -17,7 +17,7 @@ exports.addNewRestaurant = function(data, callback) {
  * @param  {Function} callback 回调函数
  */
 exports.rewriteRestaurant = function(rid, data, callback) {
-	var sql = "update restaurant set name='"+data.name+"', categories='"+data.categories+"', addr='"+data.addr+"' where id='"+rid+"' ";
+	var sql = "UPDATE restaurant SET name='"+data.name+"', city='"+data.city+"', restaurant.descrb='"+data.describe+"' where id='"+rid+"'";
 	conn.query(sql, callback);
 };
 
@@ -31,13 +31,23 @@ exports.getOneRestaurant = function(rid, callback) {
 	conn.query(sql, callback);
 };
 
+exports.getRestaurantByBoss = function(bid, callback) {
+	var sql = "select restaurant.* from restaurant where boss='"+bid+"'";
+	conn.query(sql, callback);
+};
+
 /**
  * 获取店铺列表
  * @param  {String}   offset   [间隔数]
  * @param  {Function} callback [回调函数]
  */
 exports.getRestaurantList = function(offset, callback) {
-	var sql = "select restaurant.id, restaurant.name, restaurant.city, categories.name as categories, boss.realname as boss from restaurant, boss, categories where boss.id=restaurant.boss and categories.id = restaurant.categories limit 10 offset "+offset+"";
+	var sql = "select restaurant.id, restaurant.name, restaurant.city, restaurant.descrb, boss.realname as boss from restaurant, boss where boss.id=restaurant.boss limit 10 offset "+offset+"";
+	conn.query(sql, callback);
+};
+
+exports.getRestaurantListByPlace = function(city, offset, callback) {
+	var sql = "select restaurant.id, restaurant.name, restaurant.city, boss.realname as boss from restaurant, boss where boss.id=restaurant.boss and restaurant.city = '"+ city +"' limit 10 offset "+offset+"";
 	conn.query(sql, callback);
 };
 

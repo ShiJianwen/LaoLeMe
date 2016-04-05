@@ -5,6 +5,7 @@ var Proxy = require('../proxy/index.js');
 router.post('/', function(req, res, next) {
     Proxy.comment.addNewComment(req.body, function(err, result) {
         if (err) {
+            console.log(err);
             res.status(500).send({
                 msg: 'error',
                 err: err
@@ -46,9 +47,12 @@ router.get('/', function(req, res, next) {
     req.query.offset = req.query.offset || 0;
     req.query.uid = req.query.uid || null;
     req.query.fid = req.query.fid || null;
+    req.query.rid = req.query.rid || null;
+    req.query.cid = req.query.cid || null;
     if (req.query.fid) {
         Proxy.comment.getCommentList(req.query.fid, req.query.offset, function(err, result) {
             if (err) {
+                console.log(err);
                 res.status(500).send({
                     msg: 'error',
                     err: err
@@ -63,6 +67,36 @@ router.get('/', function(req, res, next) {
     } else if (req.query.uid) {
         Proxy.comment.getCommentByUid(req.query.uid, req.query.offset, function(err, result) {
             if (err) {
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
+        });
+    } else if (req.query.rid) {
+        Proxy.comment.getCommentListByRestaurant(req.query.rid, req.query.offset, function(err, result) {
+            if (err) {
+                console.log(err);
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
+        });
+    } else if(req.query.cid) {
+        Proxy.comment.getCommentById(req.query.cid, function(err, result) {
+            if (err) {
+                console.log(err);
                 res.status(500).send({
                     msg: 'error',
                     err: err

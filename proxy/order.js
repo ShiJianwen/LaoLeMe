@@ -37,7 +37,11 @@ exports.changeOrderState = function(oid, status, callback) {
  * @param  {Function} callback [回调函数]
  */
 exports.getOrderList = function(uid, offset, callback) {
-	var sql = "select * from orders limit 10 offset "+offset+" where user='"+uid+"'";
+	var sql = "select orders.*, restaurant.name as restaurant_name from orders, restaurant where user='"+uid+"' and restaurant.id = orders.restaurant limit 10 offset "+offset+"";
+	conn.query(sql, callback);
+};
+exports.getOrderListByRestaurant = function(rid, offset, callback) {
+	var sql = "select orders.*, restaurant.name as restaurant_name, user.realname as username from orders, restaurant, user where restaurant='"+rid+"' and restaurant.id = orders.restaurant and user.id=orders.user order by orders.create_date=-1 limit 10 offset "+offset+"";
 	conn.query(sql, callback);
 };
 

@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(session({
     secret: 'laoleme.duapp.com',
     cookie: {
-        maxAge: 2*3600*1000
+        maxAge: 2 * 3600 * 1000
     },
     resave: true,
     saveUninitialized: true
@@ -40,17 +40,17 @@ app.use(passport.session());
 app.use(flash());
 
 passport.use('root', new LocalStrategy(function(username, password, done) {
-    var administrator = {
+    var administrator = [{
         id: '1',
         username: 'root',
         password: 'root'
-    };
-    if (username !== administrator.username) {
+    }];
+    if (username !== administrator[0].username) {
         return done(null, false, {
             message: '用户名错误'
         });
     }
-    if (password !== administrator.password) {
+    if (password !== administrator[0].password) {
         return done(null, false, {
             message: '密码错误'
         });
@@ -61,13 +61,34 @@ passport.use('root', new LocalStrategy(function(username, password, done) {
 
 passport.use('local', new LocalStrategy(function(username, password, done) {
     proxy.user.getUserByPhone(username, function(err, user) {
-        if(!user) {
-            return done(null, false, {message: '用户名不存在'});
+        if (!user) {
+            return done(null, false, {
+                message: '用户名不存在'
+            });
         }
-        if(bcompare(password, user.password)) {
+        if (bcompare(password, user[0].password)) {
             return done(null, user);
         } else {
-            return done(null, false, {message: '密码错误'});
+            return done(null, false, {
+                message: '密码错误'
+            });
+        }
+    });
+}));
+
+passport.use('boss', new LocalStrategy(function(username, password, done) {
+    proxy.boss.getBossByPhone(username, function(err, user) {
+        if (!user) {
+            return done(null, false, {
+                message: '用户名不存在'
+            });
+        }
+        if (bcompare(password, user[0].password)) {
+            return done(null, user);
+        } else {
+            return done(null, false, {
+                message: '密码错误'
+            });
         }
     });
 }));
@@ -87,11 +108,13 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 //各种路由各种屌 
-// app.use('/api/v1', middleware.isLoggedIn);
-app.use('/api/v1/user', middleware.isLoggedIn, routes.user);
+app.get('/', function(req, res) {
+    res.sendfile('./app/index.html');
+});
+app.use('/api/v1/user', routes.user);
 app.use('/api/v1/boss', middleware.isLoggedIn, routes.boss);
-app.use('/api/v1/restaurant', middleware.isLoggedIn, routes.restaurant);
-app.use('/api/v1/food', middleware.isLoggedIn, routes.food);
+app.use('/api/v1/restaurant', routes.restaurant);
+app.use('/api/v1/food', routes.food);
 app.use('/api/v1/order', routes.order);
 app.use('/api/v1/comment', routes.comment);
 app.use('/api/v1/feedback', routes.feedback);
@@ -103,24 +126,61 @@ app.use('/dashboard', function(req, res) {
     res.sendfile('./dashboard/index.html');
 });
 app.post('/api/v1/login', function(req, res, next) {
-    passport.authenticate('root', function(err, user, info) {
-        if(err) {
-            return next(err);
-        }
-        if(!user) {
-            res.status(400).send(info);
-        }
-        req.logIn(user, function(err) {
-            if(err) {
+    req.body.type = req.body.type || null;
+    if (req.body.type === '1') {
+        passport.authenticate('root', function(err, user, info) {
+            if (err) {
                 return next(err);
-            } 
-            res.send(user);
-        });
-    })(req, res, next);
+            }
+            if (!user) {
+                return res.status(400).send(info);
+            }
+            req.logIn(user, function(err) {
+                if (err) {
+                    return next(err);
+                }
+                res.send(user);
+            });
+        })(req, res, next);
+    }
+    if (req.body.type === '2') {
+        passport.authenticate('local', function(err, user, info) {
+            if (err) {
+                return next(err);
+            }
+            if (!user) {
+                return res.status(400).send(info);
+            }
+            req.logIn(user, function(err) {
+                if (err) {
+                    return next(err);
+                }
+                res.send(user);
+            });
+        })(req, res, next);
+    }
+    if (req.body.type === '3') {
+        passport.authenticate('boss', function(err, user, info) {
+            if (err) {
+                return next(err);
+            }
+            if (!user) {
+                return res.status(400).send(info);
+            }
+            req.logIn(user, function(err) {
+                if (err) {
+                    return next(err);
+                }
+                res.send(user);
+            });
+        })(req, res, next);
+    }
 });
 app.get('/api/v1/logout', function(req, res) {
     req.logout();
-    res.send({msg: '退出登录'});
+    res.send({
+        msg: '退出登录'
+    });
 });
 
 

@@ -70,3 +70,7 @@ exports.doLogin = function(username, password, callback) {
     var sql = "select * from boss where username='" + username + "' and password='" + password + "'";
     conn.query(sql, callback);
 };
+exports.getBossByPhone = function(username, callback) {
+    var sql = "select boss.*, restaurant.id as restaurant from boss, restaurant where phone="+username+" and restaurant.boss=boss.id";
+    conn.query(sql, callback);
+};

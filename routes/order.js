@@ -5,6 +5,7 @@ var Proxy = require('../proxy/index.js');
 router.post('/', function(req, res, next) {
     Proxy.order.addNewOrder(req.body, function(err, result) {
         if (err) {
+            console.log(err);
             res.status(500).send({
                 msg: 'error',
                 err: err
@@ -71,23 +72,40 @@ router.get('/', function(req, res, next) {
     req.query.q = req.query.q || null;
     req.query.oid = req.query.oid || null;
     req.query.uid = req.query.uid || null;
-
+    req.query.rid = req.query.rid || null;
     if (req.query.uid) {
         Proxy.order.getOrderList(req.query.uid, req.query.offset, function(err, result) {
             if (err) {
+                console.log(err);
                 res.status(500).send({
                     msg: 'error',
                     err: err
                 });
             } else {
                 res.send({
-                    msg: 'error',
+                    msg: 'success',
                     result: result
                 });
             }
         });
-    } else
-    if (req.query.oid) {
+    }
+    else if (req.query.rid) {
+        Proxy.order.getOrderListByRestaurant(req.query.rid, req.query.offset, function(err, result) {
+            if (err) {
+                console.log(err);
+                res.status(500).send({
+                    msg: 'error',
+                    err: err
+                });
+            } else {
+                 res.send({
+                    msg: 'success',
+                    result: result
+                });
+            }
+        });
+    }
+    else if (req.query.oid) {
         Proxy.order.getOrderById(req.query.oid, function(err, result) {
             if (err) {
                 res.status(500).send({
