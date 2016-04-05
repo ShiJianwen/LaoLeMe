@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var dev = true;
+var dev = false;
 var conn = mysql.createConnection({
     host: dev ? '127.0.0.1' : '119.29.73.44',
     user: dev ? 'root' : 'root',
